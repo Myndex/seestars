@@ -1,8 +1,65 @@
+///////////////////////////////////////////////////////////////////////////////
+/////
+/////    SEE STARS - sRGB to Y and Y to L* and back
+/////           Beta 0.0.1
+/////    Copyright © 2022 by Andrew Somers. All Rights Reserved.
+/////    LICENSE: AGPL 3 LICENSE
+/////    CONTACT: Please use the ISSUES or DISCUSSIONS tab at:
+/////    https://github.com/Myndex/seestars/
+/////
+///////////////////////////////////////////////////////////////////////////////
+/////
+/////    MINIMAL IMPORTS:
+/////      import { colorParsley } from 'colorparsley';
+/////
+/////
+////////////////////////////////////////////////////////////////////////////////
+
+//////////   SEE STARS  0.0.1 USAGE  ///////////////////////////////////////////
+///
+///  ________________________________________________________________________
+///
+///                  **********   QUICK START   **********
+///
+///  
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+/////   BEGIN SEE STARS  0.0.1  BLOCK   \/////////////////////////////////////
+////                                     \///////////////////////////////////
+///                                       \/////////////////////////////////
+//                                         \///////////////////////////////
+
+
+/////  DEPENDENCIES  /////
+
+// The following imports are not needed for the main APCA function,
+// but are needed for the shortcut/alias calcAPCA(), and for the
+// future invertAPCA function, which examines hue.
+
+
+       ////  (add slash to line start for local test mode, remove before push)
+/*    ////  LOCAL TESTING SWITCH for using test.html
+    import { colorParsley } from'../../colorparsley/src/colorparsley.js';
+/*/   //// TOGGLE
+    import { colorParsley } from 'colorparsley';
+// */ //// END LOCAL TESTING SWITCH
+
+
+
+
 // Based on CSS 4 https://www.w3.org/TR/css-color-4/#color-conversion-code
 
-// Basic usage: for rgb to L*, then YtoLstar(toY(rgbArray)) // returns L*
+// Basic usage: shorthand rgb to L*: let Lstar = seeStars(colorString);
+// for rgb to L*, then YtoLstar(toY(rgbArray)) // returns L*
 // for rgb to greyscale, then YtoRGBgrey(toY(rgbArray))  // returns [r,g,b]
 
+
+
+
+/////  Module Scope Object Containing Constants  /////
 
 // standard white points, defined by 4-figure CIE x,y chromaticities
 const D65 = [0.3127 / 0.3290, 1.00000, (1.0 - 0.3127 - 0.3290) / 0.3290];
@@ -54,6 +111,7 @@ export function toY(rgb, colorspace = 'sRGB') {
     rgb[i] = sRGB2lin(rgb[i] / 255.0);
   }
 	return linRGBtoY(rgb,sRGBco);
+	
  } else {
   for(let i=0;i<3;i++) {
     rgb[i] = sRGB2lin(rgb[i]);
@@ -97,3 +155,7 @@ export function LstarToY(Lstar) {
 }
 
 
+
+export function seeStars(color) {
+  return YtoLstar( toY( colorParsley(color) ) )
+}

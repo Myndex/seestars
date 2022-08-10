@@ -1,0 +1,58 @@
+{
+  "name": "seestars",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "See Stars • a lightweight set of utilities to take an sRGB or displayP3 color, and extract the CIE Y relative luminance, and then convert to CIE L* (perceptual lightness). Takes RGB colors as simple arrays (as created with colorParsley). Bonus utilities to covert from L* back to Y, and from Y back to an achromatic greyscale in sRGB or P3.",
+  "main": "./src/seestars.js",
+  "keywords": [
+    "CSS",
+    "CSS3",
+    "CSS4",
+    "CSS5",
+    "HTML",
+    "PDF",
+    "RTF",
+    "sRGB",
+    "RGB",
+    "P3",
+    "displayP3",
+    "Adobe RGB",
+    "LCh",
+    "Lstar",
+    "color",
+    "colour",
+    "colors",
+    "colours",
+    "contrast",
+    "lightness",
+    "brightness",
+    "luminance",
+    "design tools",
+    "string parsing",
+    "HSL",
+    "HSV",
+    "HWB",
+    "RGB parsing",
+    "hex string",
+    "regex"
+  ],
+  "author": "Andrew Somers",
+  "license": "AGPL v3",
+  "bugs": {
+    "url": "https://github.com/Myndex/seestars/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Myndex/seestars.git"
+  },
+  "homepage": "https://www.myndex.com/",
+  "scripts": {
+    "test": "ava test/index.js"
+  },
+  "dependencies": {
+    "colorparsley": "^0.1.8"
+  },
+  "devDependencies": {
+    "ava": "^4.3.0"
+  }
+}

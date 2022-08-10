@@ -1,0 +1,62 @@
+<!DOCTYPE html><head>
+<base lang="en-US" title="CoLoR PaRsLeY TEST">
+<title>See Stars TEST</title>
+</head>
+<body style="margin: 2em; font-family: sans-serif; font-size: 1.2em; background: #429; color:#eee;">
+<h1>See Stars Script Test 0.0.1</h1>
+<h3>Usage:</h3>
+
+<code>seeStars()</code> takes any string or int and parses it and returns the CIE L* value.</p>
+<div id="test">Enable Javascript </div>
+</body>
+
+<script type="module">
+// imports set for local testing
+import { seeStars, toY } from './seestars.js';
+import { colorParsley } from'../../colorparsley/src/colorparsley.js';
+
+let outputText = document.getElementById('test');
+
+outputText.innerHTML = '<h3>TEST COLORS</h3>';
+
+outputText.innerHTML += '<p>Colors may be a hex string, a named color, an rgb(), or just a number</p>'
+
+let colorObject = {r: 123, g: 77, b: 200, fred: 'hello', nothing: 0,};
+
+let color0='rgba(0,0,0,0)', color1 = '#123456cc', color2 = 'cadetblue', color3 = 'rgb(170.0, 187.0, 205.0,0.7)', color4 = 0x808080, color5 = 'hsl(112,22.8%,66.5%,0.8)', color6 = '123,', color7 = 'DEF', color10 = 'color("display-p3" 0.234 0.876 0.656 / 0.8)', color11 = '#abcd', color12 = 'rgba(123.5,74.2,255 0.8)', color14 = 'rgba(170.2,187.3,203.7,0.8)';
+
+outputText.innerHTML +='<pre style="tab-size: 38;">color 0: '
+	 + color0 + '  \t Y: [' + toY( colorParsley(color0)) + ']'
+   + ' <br>color 1: ' + color1 + '  \t Y: [' + toY( colorParsley(color1)) + ']'
+	 + ' <br>color 2: ' + color2 + '  \t Y: [' + toY( colorParsley(color2)) + ']'
+	 + ' <br>color 3: ' + color3 + '\t Y: [' + toY( colorParsley(color3)) + ']'
+	 + ' <br>color 4: ' + color4 + '(0x808080)  \t Y: [' + toY( colorParsley(color4)) + ']'
+	 + ' <br>color 5: ' + color5 + '  \t Y: [' + toY( colorParsley(color5)) + ']'
+	 + ' <br>color 6: ' + color6 + '  \t Y: [' + toY( colorParsley(color6)) + ']'
+	 + ' <br>color 7: ' + color7 + '  \t Y: [' + toY( colorParsley(color7)) + ']'
+	 + ' <br>color 8: ' + '#fa' + '   \t Y: [' + toY( colorParsley('#fa')) + ']'
+	 + ' <br>color 9: ' + '#333' + '   \t Y: [' + toY( colorParsley('#333')) + ']'
+	 + ' <br>color 9b: ' + 'rgb(77%,87%,46%)' + '   \t Y: [' + toY( colorParsley('rgb(77%,87%,46%)')) + ']'
+	 + ' <br>color 9c: ' + 'deeppink' + '   \t Y: [' + toY( colorParsley('deeppink')) + ']'
+	 + ' <br>color 9cc: ' + '#ff1493' + '   \t Y: [' + toY( colorParsley('#ff1493')) + ']'
+	 + ' <br>color10: <br>&nbsp;&nbsp;&nbsp;' + color10 + ' Y: [' + toY( colorParsley(color10)) + ']'
+   + '<br><br>'
+	 + color0 + '  \t L*: [' + seeStars(color0) + ']'
+   + ' <br>color 1: ' + color1 + '  \t L*: [' + seeStars(color1) + ']'
+	 + ' <br>color 2: ' + color2 + '  \t L*: [' + seeStars(color2) + ']'
+	 + ' <br>color 3: ' + color3 + '\t L*: [' + seeStars(color3) + ']'
+	 + ' <br>color 4: ' + color4 + '(0x808080)  \t L*: [' + seeStars(color4) + ']'
+	 + ' <br>color 5: ' + color5 + '  \t L*: [' + seeStars(color5) + ']'
+	 + ' <br>color 6: ' + color6 + '  \t L*: [' + seeStars(color6) + ']'
+	 + ' <br>color 7: ' + color7 + '  \t L*: [' + seeStars(color7) + ']'
+	 + ' <br>color 8: ' + '#fa' + '   \t L*: [' + seeStars('#fa') + ']'
+	 + ' <br>color 9: ' + '#333' + '   \t L*: [' + seeStars('#333') + ']'
+	 + ' <br>color 9b: ' + 'rgb(77%,87%,46%)' + '   \t L*: [' + seeStars('rgb(77%,87%,46%)') + ']'
+	 + ' <br>color 9c: ' + 'deeppink' + '   \t L*: [' + seeStars('deeppink') + ']'
+	 + ' <br>color 9cc: ' + '#ff1493' + '   \t L*: [' + seeStars('#ff1493') + ']'
+	 + ' <br>color10: <br>&nbsp;&nbsp;&nbsp;' + color10 + ' L*: [' + seeStars(color10) + ']'
+	 ;
+</script>
+
+
+
