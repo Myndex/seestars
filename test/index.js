@@ -1,4 +1,4 @@
-// APCA Test Script for 0.1.7
+// See Stars Test Script for 0.0.1
 
 import test from 'ava';
 
