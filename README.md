@@ -37,3 +37,10 @@ _NPM Install:_   ` npm i seestars `
 
 ### *Usage:*
 
+```js
+    Lstar = seeStars('#abcdef');
+````
+
+![seestars logo](https://user-images.githubusercontent.com/42009457/183821818-e04264f7-2bae-4a59-aa6a-f5372b52560f.png)
+
+
